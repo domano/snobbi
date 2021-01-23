@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lists",
+  "info": {
+    "name": "List",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "recommendations": {
+      "collection": "recommendation",
+      "via": "toplist"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_recommendation_type_simples",
+  "info": {
+    "name": "Simple",
+    "icon": "thumbs-up",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

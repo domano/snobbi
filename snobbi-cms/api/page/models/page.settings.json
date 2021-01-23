@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "parents": {
+      "collection": "page",
+      "via": "children",
+      "dominant": true
+    },
+    "children": {
+      "collection": "page",
+      "via": "parents"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/recommendation-lists",
+      "handler": "recommendation-list.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recommendation-lists/count",
+      "handler": "recommendation-list.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recommendation-lists/:id",
+      "handler": "recommendation-list.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recommendation-lists",
+      "handler": "recommendation-list.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recommendation-lists/:id",
+      "handler": "recommendation-list.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recommendation-lists/:id",
+      "handler": "recommendation-list.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

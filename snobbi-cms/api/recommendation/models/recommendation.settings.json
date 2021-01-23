@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recommendations",
+  "info": {
+    "name": "Recommendation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Simple": {
+      "type": "component",
+      "repeatable": false,
+      "component": "recommendation-type.simple"
+    },
+    "toplist": {
+      "via": "recommendations",
+      "model": "recommendation-list"
+    }
+  }
+}
