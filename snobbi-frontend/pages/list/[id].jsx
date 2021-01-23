@@ -1,3 +1,5 @@
+import {RecommendationTile} from "../components/RecommendationTile";
+
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
     const res = await fetch(`http://${process.env.NEXT_PUBLIC_CMS_BASE_URL}/recommendation-lists`)
@@ -19,6 +21,7 @@ export async function getStaticProps({params}) {
     const res = await fetch(`http://${process.env.NEXT_PUBLIC_CMS_BASE_URL}/recommendation-lists/${params.id}`)
     const recommendation = await res.json()
 
+    recommendation.Simple.Image.src = `http://${process.env.NEXT_PUBLIC_CMS_BASE_URL}${recommendation.Simple.Image.url}`
     // Pass post data to the page via props
     return {props: recommendation}
 }
@@ -46,25 +49,3 @@ export default function List(props) {
     )
 }
 
-function RecommendationTile({recommendation}) {
-    return <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-        <div className="flex-shrink-0">
-            <img className="h-48 w-full object-cover"
-                 src={`http://${process.env.NEXT_PUBLIC_CMS_BASE_URL}${recommendation.Simple.Image.url}`}
-                 alt=""/>
-        </div>
-        <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div className="flex-1">
-
-                <a href={recommendation.Simple.Link} className="block mt-2">
-                    <p className="text-xl font-semibold text-gray-900">
-                        {recommendation.Simple.Title}
-                    </p>
-                    <p className="mt-3 text-base text-gray-500">
-                        {recommendation.Simple.Description}
-                    </p>
-                </a>
-            </div>
-        </div>
-    </div>;
-}
