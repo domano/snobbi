@@ -1,4 +1,4 @@
-import {RecommendationTile} from "../components/RecommendationTile";
+import {RecommendationTile} from "../../components/RecommendationTile";
 
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts

@@ -1,8 +1,6 @@
-import {useState} from "react";
-import {RecommendationTile} from "../../components/RecommendationTile";
+import React, {useState} from "react";
 import {CreateRecommendationTile} from "../../components/CreateRecommendationTile";
-
-export default function CreateList() {
+export default function () {
     let [list, setList] = useState([])
 
     const handleSubmit = (e) => {
@@ -14,17 +12,5 @@ export default function CreateList() {
         setList([{Simple:{Title:title, Description:description, Image: {url:URL.createObjectURL(image)} }}, ...list])
 
     };
-
-    return (
-<div>
-        <CreateRecommendationTile onSubmit={handleSubmit} list={list}/>
-    <div className="relative max-w-7xl mx-auto">
-
-    <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-
-    {list.map(r => <RecommendationTile key={r.Simple.Title} recommendation={r}/>)}
-    </div>
-    </div>
-</div>
-)
+    return <CreateRecommendationTile onSubmit={handleSubmit} list={list}/>
 }
