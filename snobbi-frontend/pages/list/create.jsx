@@ -1,30 +1,29 @@
 import {useState} from "react";
-import {RecommendationTile} from "../../components/RecommendationTile";
-import {CreateRecommendationTile} from "../../components/CreateRecommendationTile";
+import {Tile} from "../../components/Tile";
+import {CreateTile} from "../../components/forms/CreateTile";
+import {Transition} from '@headlessui/react'
+import {useForm} from "react-hook-form";
+import List from "../../components/List";
+
 
 export default function CreateList() {
+    let [title, setTitle] = useState([])
+    let [description, setDescription] = useState([])
     let [list, setList] = useState([])
+    const { register, handleSubmit, watch, errors } = useForm();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        let title = formData.get("title")
-        let description = formData.get("description")
-        let image = formData.get("image")
-        setList([{Simple:{Title:title, Description:description, Image: {url:URL.createObjectURL(image)} }}, ...list])
 
+    const onSubmit = (data,e) => {
+        setList([{Simple: {Title: data.title, Description: data.description, Image: {url: URL.createObjectURL(data.image[0])}}}, ...list])
+        e.target.reset()
     };
 
     return (
-<div>
-        <CreateRecommendationTile onSubmit={handleSubmit} list={list}/>
-    <div className="relative max-w-7xl mx-auto">
-
-    <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-
-    {list.map(r => <RecommendationTile key={r.Simple.Title} recommendation={r}/>)}
-    </div>
-    </div>
-</div>
-)
+        <div>
+            <CreateTile register={register} onSubmit={handleSubmit(onSubmit)} list={list}/>
+            <div className="relative max-w-7xl mx-auto">
+                <List title={title} description={description} list={list}/>
+            </div>
+        </div>
+    )
 }
