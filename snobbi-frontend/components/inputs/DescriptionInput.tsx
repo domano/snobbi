@@ -7,7 +7,7 @@ export default function DescriptionInput({register, name}) {
             Description
         </label>
         <div className="mt-1 sm:mt-0 sm:col-span-2">
-                                    <textarea id={name} name={name} rows="3"
+                                    <textarea id={name} name={name} rows={3}
                                               ref={register({required: true})}
                                               className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"></textarea>
             <p className="mt-2 text-sm text-gray-500">Write a few sentences about it!</p>

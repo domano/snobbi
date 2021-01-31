@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {CreateTile} from "../../components/forms/CreateTile";
+import {CreateTile} from "../../../components/forms/CreateTile";
 export default function () {
     let [list, setList] = useState([])
 
@@ -12,5 +12,5 @@ export default function () {
         setList([{Simple:{Title:title, Description:description, Image: {url:URL.createObjectURL(image)} }}, ...list])
 
     };
-    return <CreateTile onSubmit={handleSubmit} list={list}/>
+    return <CreateTile onSubmit={handleSubmit}/>
 }

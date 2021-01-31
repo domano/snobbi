@@ -8,7 +8,7 @@ export default function FileInput({register, name}) {
         <label htmlFor="cover_photo" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
             Image
         </label>
-        <div className="mt-2 sm:mt-0 sm:col-span-2 flex flex-col sm:flex-row justify-start">
+        <div className="mt-2 sm:mt-0 sm:col-span-2 flex  flex-col md:flex-row lg:flex-col justify-start">
             <div
                 className="max-w-lg flex flex-none justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                 <div className="space-y-1 text-center">
@@ -34,7 +34,7 @@ export default function FileInput({register, name}) {
                 </div>
             </div>
             {/* TODO: Responsive image sizes*/}
-            {previewImage ? <img className="h-44" src={previewImage}/> : null}
+            {previewImage ? <img className="object-contain h-44" src={previewImage}/> : null}
         </div>
     </div>;
 }

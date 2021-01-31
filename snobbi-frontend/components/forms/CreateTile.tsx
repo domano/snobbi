@@ -1,15 +1,13 @@
-import {useRef, useState} from "react";
 import TitleInput from "../inputs/TitleInput";
 import DescriptionInput from "../inputs/DescriptionInput";
 import FileInput from "../inputs/FileInput";
 
 export function CreateTile({register, onSubmit}) {
-    let formRef = useRef(null)
     return <div className="flex flex-col rounded-lg bg-white p-6 shadow-lg overflow-hidden">
         <p className="text-xl font-semibold text-gray-900">
             New List Item
         </p>
-        <form ref={formRef} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
             <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                 <TitleInput register={register} name={"title"}/>
 

@@ -1,13 +1,12 @@
-import {useRef, useState} from "react";
 import TitleInput from "../inputs/TitleInput";
 import DescriptionInput from "../inputs/DescriptionInput";
 
-export function CreateTile({register, onSubmit}) {
+export function CreateListHeader({register, onSubmit}) {
     return <div className="flex flex-col rounded-lg bg-white p-6 shadow-lg overflow-hidden">
         <p className="text-xl font-semibold text-gray-900">
             Introduction
         </p>
-        <form onSubmit={onSubmit}>
+        <form onChange={onSubmit}>
             <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                 <TitleInput register={register} name={"title"}/>
 
